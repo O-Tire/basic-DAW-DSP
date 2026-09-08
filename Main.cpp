@@ -1,8 +1,9 @@
 #include <cstdio>
+#include "folder/file.hpp"
 
 int main()
 {
-    printf("Hello World!\n");
+    printf("%s", GetText().c_str());
 
     return 0;
 }
