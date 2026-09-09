@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 
+
+
 // Example: 16-bit mono PCM samples at 44.1 kHz
 std::vector<int16_t> samples;
 
@@ -27,7 +29,7 @@ int main() {
     // Generate a simple sine wave for demonstration
     double frequency = 440.0; // A4
     double sampleRate = 44100.0;
-    double amplitude = 3000.0;
+    double amplitude = 30000.0;
     int durationSeconds = 2;
 
     int totalSamples = (int)(durationSeconds * sampleRate);
