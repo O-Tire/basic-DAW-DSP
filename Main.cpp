@@ -21,8 +21,6 @@ void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uin
             out[i] = 0; // silence after samples end
         }
     }
-
-    (void)pInput; // unused
 }
 
 int main() {
@@ -47,16 +45,8 @@ int main() {
     config.dataCallback      = data_callback;
 
     ma_device device;
-    if (ma_device_init(NULL, &config, &device) != MA_SUCCESS) {
-        std::cerr << "Failed to initialize playback device.\n";
-        return -1;
-    }
-
-    if (ma_device_start(&device) != MA_SUCCESS) {
-        std::cerr << "Failed to start playback device.\n";
-        ma_device_uninit(&device);
-        return -1;
-    }
+    ma_device_init(NULL, &config, &device);
+    ma_device_start(&device);
 
     std::cout << "Playing sine wave...\n";
     getchar(); // wait until user presses Enter
