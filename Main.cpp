@@ -11,7 +11,6 @@ int main()
     SampleList samples = Synth::Synthesize(440, 10, sampleRate);
     AudioEngine AE(sampleRate);
 
-    AE.Start();
     AE.PlaySamples(samples);
     
     std::cout << "Playing sine wave...\n";

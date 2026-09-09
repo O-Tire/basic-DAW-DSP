@@ -12,6 +12,7 @@ AudioEngine::AudioEngine(float sampleRate)
 
     _device = new ma_device();
     ma_device_init(nullptr, &config, _device);
+    ma_device_start(_device);
 }
 
 AudioEngine::~AudioEngine()
@@ -19,11 +20,6 @@ AudioEngine::~AudioEngine()
     ma_device_uninit(_device);
     delete _device;
     _device = nullptr;
-}
-
-void AudioEngine::Start()
-{
-    ma_device_start(_device);
 }
 
 void AudioEngine::PlaySamples(SampleList samples)
