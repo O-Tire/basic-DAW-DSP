@@ -11,7 +11,8 @@ std::vector<float> samples;
 ma_uint64 cursor = 0; // playback position
 
 // Callback: miniaudio pulls audio data here
-void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount) {
+void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
+{
     float* out = (float*)pOutput;
 
     for (ma_uint32 i = 0; i < frameCount; i++) {
@@ -23,7 +24,8 @@ void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uin
     }
 }
 
-int main() {
+int main()
+{
     // Generate a simple sine wave for demonstration
     float sampleRate = 44100.0;
 
