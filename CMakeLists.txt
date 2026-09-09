@@ -9,5 +9,5 @@ Main.cpp
 # FOR THE MINIAUDIO LIBRARY #
 
 target_include_directories(App PUBLIC
-./miniaudio
+./libraries
 )
