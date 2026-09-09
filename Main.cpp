@@ -6,13 +6,12 @@
 
 
 // Example: 16-bit mono PCM samples at 44.1 kHz
-std::vector<int16_t> samples;
-
+std::vector<float> samples;
 ma_uint64 cursor = 0; // playback position
 
 // Callback: miniaudio pulls audio data here
 void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount) {
-    int16_t* out = (int16_t*)pOutput;
+    float* out = (float*)pOutput;
 
     for (ma_uint32 i = 0; i < frameCount; i++) {
         if (cursor < samples.size()) {
@@ -25,21 +24,21 @@ void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uin
 
 int main() {
     // Generate a simple sine wave for demonstration
-    double frequency = 440.0; // A4
-    double sampleRate = 44100.0;
-    double amplitude = 30000.0;
+    float frequency = 440.0; // A4
+    float sampleRate = 44100.0;
+    float amplitude = 1;
     int durationSeconds = 2;
 
     int totalSamples = (int)(durationSeconds * sampleRate);
     samples.resize(totalSamples);
 
     for (int i = 0; i < totalSamples; i++) {
-        samples[i] = (int16_t)(amplitude * sin((2.0 * MA_PI * frequency * i) / sampleRate));
+        samples[i] = (float)(amplitude * sin((2.0 * MA_PI * frequency * i) / sampleRate));
     }
 
     // Configure playback device
     ma_device_config config = ma_device_config_init(ma_device_type_playback);
-    config.playback.format   = ma_format_s16;
+    config.playback.format   = ma_format_f32;
     config.playback.channels = 1;
     config.sampleRate        = (ma_uint32)sampleRate;
     config.dataCallback      = data_callback;
