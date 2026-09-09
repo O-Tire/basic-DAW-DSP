@@ -32,7 +32,7 @@ void AudioEngine::PlaySamples(SampleList samples)
     playhead = 0;
 }
 
-void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
+void AudioEngine::data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
 {
     float* out = (float*)pOutput;
     AudioEngine* AE = reinterpret_cast<AudioEngine*>(pDevice->pUserData);
