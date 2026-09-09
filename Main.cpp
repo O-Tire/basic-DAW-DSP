@@ -2,6 +2,7 @@
 #include "libraries/miniaudio.h"
 #include <iostream>
 #include <vector>
+#include "utils/synth.hpp"
 
 
 
@@ -24,16 +25,15 @@ void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uin
 
 int main() {
     // Generate a simple sine wave for demonstration
-    float frequency = 440.0; // A4
     float sampleRate = 44100.0;
     float amplitude = 1;
-    int durationSeconds = 2;
+    int durationSeconds = 10;
 
     int totalSamples = (int)(durationSeconds * sampleRate);
     samples.resize(totalSamples);
 
     for (int i = 0; i < totalSamples; i++) {
-        samples[i] = amplitude * sin((2.0f * MA_PI * frequency * i) / sampleRate);
+        samples[i] = Synth::Synthesize(i, sampleRate);
     }
 
     // Configure playback device
