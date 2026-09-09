@@ -1,13 +1,12 @@
 #include "AudioEngine.hpp"
-#define SAMPLE_RATE 44100.f
 
-AudioEngine::AudioEngine()
+AudioEngine::AudioEngine(float sampleRate)
 {
     // Playback device configuration:
     ma_device_config config = ma_device_config_init(ma_device_type_playback);
     config.playback.format = ma_format_f32;
     config.playback.channels = 1;
-    config.sampleRate = SAMPLE_RATE;
+    config.sampleRate = sampleRate;
     config.dataCallback = data_callback;
     config.pUserData = this;
 

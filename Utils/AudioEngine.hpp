@@ -19,7 +19,7 @@ public:
     
     SampleList samples;
 
-    AudioEngine();
+    AudioEngine(float sampleRate);
     
     ~AudioEngine();
     
