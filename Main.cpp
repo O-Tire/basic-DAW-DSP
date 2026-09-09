@@ -1,9 +1,9 @@
 #include <cstdio>
-#include "folder/file.hpp"
+#include "miniaudio/miniaudio.h"
 
 int main()
 {
-    printf("%s", GetText().c_str());
+    printf("%s", "Hello World!");
 
     return 0;
 }

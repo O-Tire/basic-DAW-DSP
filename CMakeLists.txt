@@ -4,5 +4,10 @@ project(App)
 
 add_executable(App 
 Main.cpp
-folder/file.cpp
+)
+
+# FOR THE MINIAUDIO LIBRARY #
+
+target_include_directories(App PUBLIC
+./miniaudio
 )
