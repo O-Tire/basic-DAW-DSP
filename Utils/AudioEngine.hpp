@@ -1,6 +1,5 @@
 #pragma once
 
-#define MINIAUDIO_IMPLEMENTATION
 #include "../libraries/miniaudio.h"
 #include "Constants.hpp"
 
