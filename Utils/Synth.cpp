@@ -1,12 +1,8 @@
 #include "synth.hpp"
-#define _USE_MATH_DEFINES
-#include <cmath>
-
-#define frequency 440.f
+#include <corecrt_math_defines.h>
 
 
-
-float Synth::Synthesize(float time, float sampleRate)
+float Synth::CalculateSample(float time, float frequency, float sampleRate)
 {
     float x = sin(2.0f * M_PI * frequency / 256    * time / sampleRate );
     float y = sin(2.0f * M_PI * frequency * 2    * time / sampleRate);
@@ -15,4 +11,17 @@ float Synth::Synthesize(float time, float sampleRate)
     result /= 2;
     
     return result;
+}
+
+std::vector<float> Synth::Synthesize(float frequency, float duration, float sampleRate)
+{
+    float sampleSize = sampleRate * duration;
+    std::vector<float> samples(sampleSize);
+    
+    for (int i = 0; i < sampleSize; i++)
+    {
+        samples[i] = CalculateSample(i, frequency, sampleRate);
+    }
+    
+    return samples;
 }

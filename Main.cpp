@@ -26,15 +26,8 @@ void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uin
 int main() {
     // Generate a simple sine wave for demonstration
     float sampleRate = 44100.0;
-    float amplitude = 1;
-    int durationSeconds = 10;
 
-    int totalSamples = (int)(durationSeconds * sampleRate);
-    samples.resize(totalSamples);
-
-    for (int i = 0; i < totalSamples; i++) {
-        samples[i] = Synth::Synthesize(i, sampleRate);
-    }
+    samples = Synth::Synthesize(440, 10, sampleRate);
 
     // Configure playback device
     ma_device_config config = ma_device_config_init(ma_device_type_playback);

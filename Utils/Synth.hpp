@@ -1,7 +1,11 @@
 #pragma once
+#include <vector>
 
 class Synth
 {
+private:
+    static float CalculateSample(float time, float frequency, float sampleRate);
+    
 public:
-    static float Synthesize(float time, float sampleRate);
+    static std::vector<float> Synthesize(float frequency, float duration, float sampleRate);
 };
