@@ -33,7 +33,7 @@ int main() {
     samples.resize(totalSamples);
 
     for (int i = 0; i < totalSamples; i++) {
-        samples[i] = (float)(amplitude * sin((2.0 * MA_PI * frequency * i) / sampleRate));
+        samples[i] = amplitude * sin((2.0f * MA_PI * frequency * i) / sampleRate);
     }
 
     // Configure playback device
