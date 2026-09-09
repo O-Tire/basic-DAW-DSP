@@ -2,15 +2,15 @@
 #include <corecrt_math_defines.h>
 
 
-float Synth::CalculateSample(float time, float frequency, float sampleRate)
+float Synth::CalculateSample(int time, float frequency, float sampleRate)
 {
-    float x = sin(2.0f * M_PI * frequency / 256    * time / sampleRate );
-    float y = sin(2.0f * M_PI * frequency * 2    * time / sampleRate);
+    double x = sin((double)(2.0f * M_PI * frequency / 256    * time / sampleRate));
+    double y = sin((double)(2.0f * M_PI * frequency * 2      * time / sampleRate));
     
-    float result = x * y;
+    double result = x * y;
     result /= 2;
     
-    return result;
+    return (float)result;
 }
 
 SampleList Synth::Synthesize(float frequency, float duration, float sampleRate)
