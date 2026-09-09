@@ -2,7 +2,7 @@
 
 #define MINIAUDIO_IMPLEMENTATION
 #include "../libraries/miniaudio.h"
-#include <vector>
+#include "Constants.hpp"
 
 
 class AudioEngine
@@ -17,7 +17,7 @@ public:
 
     int playhead = 0;
     
-    std::vector<float> samples;
+    SampleList samples;
 
     AudioEngine();
     
@@ -25,5 +25,5 @@ public:
     
     void Start();
     
-    void PlaySamples(std::vector<float> samples);
+    void PlaySamples(SampleList samples);
 };

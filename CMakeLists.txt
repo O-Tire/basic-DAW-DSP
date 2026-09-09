@@ -4,7 +4,8 @@ project(App)
 
 add_executable(App 
 Main.cpp
-Utils/synth.cpp
+Utils/Synth.cpp
+Utils/AudioEngine.cpp
 )
 
 # FOR THE MINIAUDIO LIBRARY #

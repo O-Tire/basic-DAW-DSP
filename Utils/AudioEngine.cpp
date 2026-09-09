@@ -27,7 +27,7 @@ void AudioEngine::Start()
     ma_device_start(_device);
 }
 
-void AudioEngine::PlaySamples(std::vector<float> samples)
+void AudioEngine::PlaySamples(SampleList samples)
 {
     this->samples = samples;
     playhead = 0;

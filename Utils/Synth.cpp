@@ -13,10 +13,10 @@ float Synth::CalculateSample(float time, float frequency, float sampleRate)
     return result;
 }
 
-std::vector<float> Synth::Synthesize(float frequency, float duration, float sampleRate)
+SampleList Synth::Synthesize(float frequency, float duration, float sampleRate)
 {
     float sampleSize = sampleRate * duration;
-    std::vector<float> samples(sampleSize);
+    SampleList samples(sampleSize);
     
     for (int i = 0; i < sampleSize; i++)
     {
