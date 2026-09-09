@@ -1,5 +1,6 @@
 #include "AudioEngine.hpp"
 
+
 AudioEngine::AudioEngine(float sampleRate)
 {
     // Playback device configuration:
@@ -33,11 +34,11 @@ void AudioEngine::data_callback(ma_device* pDevice, void* pOutput, const void* p
     float* out = (float*)pOutput;
     AudioEngine* AE = reinterpret_cast<AudioEngine*>(pDevice->pUserData);
 
-    for (ma_uint32 i = 0; i < frameCount; i++) {
-        if (AE->playhead < AE->samples.size()) {
+    for (ma_uint32 i = 0; i < frameCount; i++)
+    {
+        if (AE->playhead < AE->samples.size())
             out[i] = AE->samples[AE->playhead++];
-        } else {
+        else
             out[i] = 0; // silence after samples end
-        }
     }
 }

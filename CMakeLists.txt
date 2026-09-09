@@ -8,8 +8,6 @@ Utils/Synth.cpp
 Utils/AudioEngine.cpp
 )
 
-# FOR THE MINIAUDIO LIBRARY #
-
 target_include_directories(App PUBLIC
 ./libraries
 )
