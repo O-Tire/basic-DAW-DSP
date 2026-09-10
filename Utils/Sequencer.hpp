@@ -14,5 +14,5 @@ public:
 
     void AddTrack(Track track);
     
-    Clip RenderTracks();
+    Clip RenderTracks(float seconds);
 };

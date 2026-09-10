@@ -3,7 +3,6 @@
 #include "ClipManager.hpp"
 #include "Project.hpp"
 
-#define SAMPLE_RATE 48000.f
 
 DAW::DAW()
 {
