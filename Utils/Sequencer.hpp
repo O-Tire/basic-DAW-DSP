@@ -26,7 +26,11 @@ public:
     
     ~Sequencer();
     
-    //static Track LoopTrack(const Track& track);
+    /** @param numOfLoops 2 means loop once. (play twice)
+     *  @param loopTime When to insert the loop.
+     */
+    [[nodiscard]]
+    static Track LoopTrack(const Track& track, int numOfLoops, float loopTime);
 
     void AddTrack(Track track);
     

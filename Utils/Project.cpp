@@ -24,6 +24,7 @@ void Project::Run(AudioEngine* AE, ClipManager* CM, Sequencer* SE)
         {1.75f, 1},
     };
     
+    track1 = SE->LoopTrack(track1, 4, 2.f);
     SE->AddTrack(track1);
     Clip samples = SE->RenderTracks(10);
     

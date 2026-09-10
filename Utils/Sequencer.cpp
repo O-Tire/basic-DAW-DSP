@@ -1,6 +1,7 @@
 #include "ClipManager.hpp"
 #include "Sequencer.hpp"
 #include "Constants.hpp"
+#include <utility>
 
 
 Sequencer::Sequencer(float sampleRate, ClipManager* cm)
@@ -17,6 +18,21 @@ Sequencer::~Sequencer()
 int Sequencer::SecondsToSamples(float seconds) const
 {
     return (int)floor(seconds * _sampleRate);
+}
+
+Track Sequencer::LoopTrack(const Track& track, int numOfLoops, float loopTime)
+{
+    Track result;
+    
+    for (int i = 0; i < numOfLoops; i++)
+    {
+        for (const auto& pair : track)
+        {
+            result[loopTime * i + pair.first] = pair.second;
+        }
+    }
+    
+    return result;
 }
 
 void Sequencer::AddTrack(Track track)
