@@ -23,7 +23,7 @@ AudioEngine::~AudioEngine()
     _device = nullptr;
 }
 
-void AudioEngine::PlaySamples(SampleList samples)
+void AudioEngine::PlaySamples(Clip samples)
 {
     this->samples = samples;
     playhead = 0;

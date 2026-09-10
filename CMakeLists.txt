@@ -9,6 +9,7 @@ Utils/AudioEngine.cpp
 Utils/ClipManager.cpp
 Utils/DAW.cpp
 Utils/Project.cpp
+Utils/Sequencer.cpp
 )
 
 target_include_directories(App PUBLIC

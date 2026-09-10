@@ -15,7 +15,7 @@ private:
 
 public:
 
-    std::vector<SampleList> Clips;
+    std::vector<Clip> Clips;
     
     ClipManager(float sampleRate);
 
