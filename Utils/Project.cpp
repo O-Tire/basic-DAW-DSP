@@ -2,6 +2,7 @@
 #include "AudioEngine.hpp"
 #include "ClipManager.hpp"
 #include "Sequencer.hpp"
+//#include "Synth.hpp" // Also available
 
 
 void Project::Run(AudioEngine* AE, ClipManager* CM, Sequencer* SE)
@@ -10,7 +11,7 @@ void Project::Run(AudioEngine* AE, ClipManager* CM, Sequencer* SE)
     
     Track track1 = {{0.f, 0}};
     SE->AddTrack(track1);
-    Clip samples = SE->RenderTracks(2);
+    Clip samples = SE->RenderTracks(10);
     
     AE->PlaySamples(samples);
 }
