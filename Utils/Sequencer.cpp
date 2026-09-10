@@ -46,7 +46,7 @@ Clip Sequencer::RenderTrack(const Track track, int numOfSamples)
 Clip Sequencer::RenderTracks(float seconds)
 {
     int numOfSamples = SecondsToSamples(seconds);
-    Clip finalRender(numOfSamples);
+    Clip finalRender(numOfSamples, 0.f);
     std::vector<Clip> renderedTracks;
 
     // Render tracks.
@@ -58,7 +58,7 @@ Clip Sequencer::RenderTracks(float seconds)
     // Mix down to a single channel.
     for (int i = 0; i < numOfSamples; i++)
     {
-        for (Clip clip : renderedTracks)
+        for (const Clip& clip : renderedTracks)
         {
             finalRender[i] += clip[i];
         }
