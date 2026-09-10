@@ -7,9 +7,23 @@
 
 void Project::Run(AudioEngine* AE, ClipManager* CM, Sequencer* SE)
 {
-    CM->LoadClip("D:/temp/.wav");
+    CM->LoadClip("D:/temp/kick.wav");
+    CM->LoadClip("D:/temp/hihat.wav");
     
-    Track track1 = {{0.f, 0}};
+    Track track1 = {
+        {0.f, 0},
+        {.25f, 1},
+        
+        {.5f, 0},
+        {.75f, 1},
+        
+        {1.f, 0},
+        {1.25f, 1},
+        
+        {1.5f, 0},
+        {1.75f, 1},
+    };
+    
     SE->AddTrack(track1);
     Clip samples = SE->RenderTracks(10);
     

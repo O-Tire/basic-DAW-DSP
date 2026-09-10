@@ -25,6 +25,8 @@ public:
     Sequencer(float sampleRate, ClipManager* cm);
     
     ~Sequencer();
+    
+    //static Track LoopTrack(const Track& track);
 
     void AddTrack(Track track);
     
