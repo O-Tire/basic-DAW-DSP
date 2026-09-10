@@ -7,7 +7,7 @@ AudioEngine::AudioEngine(float sampleRate)
     ma_device_config config = ma_device_config_init(ma_device_type_playback);
     config.playback.format = ma_format_f32;
     config.playback.channels = 1;
-    config.sampleRate = sampleRate;
+    config.sampleRate = (ma_uint32)sampleRate;
     config.dataCallback = data_callback;
     config.pUserData = this;
 

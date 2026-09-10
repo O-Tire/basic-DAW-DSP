@@ -16,7 +16,7 @@ float Synth::CalculateSample(int time, float frequency, float sampleRate)
 SampleList Synth::Synthesize(float frequency, float duration, float sampleRate)
 {
     float sampleSize = sampleRate * duration;
-    SampleList samples(sampleSize);
+    SampleList samples((unsigned int)sampleSize);
     
     for (int i = 0; i < sampleSize; i++)
     {
