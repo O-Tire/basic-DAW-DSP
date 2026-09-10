@@ -15,5 +15,6 @@ void ClipManager::LoadClip(const char* path)
     Clip clip(wav.totalPCMFrameCount);
     drwav_read_pcm_frames_f32(&wav, wav.totalPCMFrameCount, clip.data());
     
+    drwav_uninit(&wav);
     Clips.push_back(clip);
 }
