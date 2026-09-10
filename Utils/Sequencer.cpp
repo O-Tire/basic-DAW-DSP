@@ -1,3 +1,4 @@
+#include "ClipManager.hpp"
 #include "Sequencer.hpp"
 #include "Constants.hpp"
 
@@ -25,7 +26,21 @@ void Sequencer::AddTrack(Track track)
 
 Clip Sequencer::RenderTrack(const Track track, int numOfSamples)
 {
-    // TODO
+    Clip render(numOfSamples, 0.f);
+    
+    for (const auto& pair : track)
+    {
+        const Clip& clip = _clipManagerRef->Clips[pair.second];
+        int start = SecondsToSamples(pair.first);
+        int end = std::min(numOfSamples, start + (int)clip.size());
+        
+        for (int i = start; i < end; i++)
+        {
+            render[i] += clip[i - start];
+        }
+    }
+    
+    return render;
 }
 
 Clip Sequencer::RenderTracks(float seconds)
