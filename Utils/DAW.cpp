@@ -2,24 +2,28 @@
 #include "AudioEngine.hpp"
 #include "ClipManager.hpp"
 #include "Project.hpp"
+#include "Sequencer.hpp"
 
 
 DAW::DAW()
 {
-    AE = new AudioEngine(SAMPLE_RATE);
-    CM = new ClipManager(SAMPLE_RATE);
+    AE = new AudioEngine(SampleRate);
+    CM = new ClipManager(SampleRate);
+    SE = new Sequencer(SampleRate, CM);
 }
 
 DAW::~DAW()
 {
     delete AE;
     delete CM;
+    delete SE;
     
     AE = nullptr;
     CM = nullptr;
+    SE = nullptr;
 }
 
 void DAW::RunProject(Project* project)
 {
-    project->Run(AE, CM);
+    project->Run(AE, CM, SE);
 }

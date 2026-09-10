@@ -5,6 +5,7 @@
 
 class AudioEngine;
 class ClipManager;
+class Sequencer;
 class Project;
 
 
@@ -16,8 +17,12 @@ private:
     AudioEngine* AE;
     
     ClipManager* CM;
+    
+    Sequencer* SE;
 
 public:
+
+    float SampleRate = 48000;
 
     DAW();
     
