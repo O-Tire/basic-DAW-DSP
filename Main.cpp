@@ -1,23 +1,19 @@
 #define MINIAUDIO_IMPLEMENTATION
 #define DR_WAV_IMPLEMENTATION
 
-#include "Utils/ClipManager.hpp"
-#include "Utils/AudioEngine.hpp"
+#include "Utils/DAW.hpp"
+#include "Utils/Project.hpp"
 #include <iostream>
 
 int main()
 {
-    float sampleRate = 48000.f;
+    DAW daw;
+    Project project;
     
-    ClipManager CM(sampleRate);
-    AudioEngine AE(sampleRate);
+    daw.RunProject(&project);
     
-    CM.LoadClip("D:/temp/.wav");
-    AE.PlaySamples(CM.Clips[0]);
-    
-    std::cout << "Playing...\n";
+    std::cout << "Playing. Press any key to exit...\n";
     getchar(); // wait until user presses Enter
-    
     
     return 0;
 }
