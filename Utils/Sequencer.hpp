@@ -16,9 +16,9 @@ private:
 
     std::vector<Track> _tracks;
     
-    int SecondsToSamples(float seconds);
+    int SecondsToSamples(float seconds) const;
     
-    Clip RenderTrack(Track track, int numOfSamples);
+    Clip RenderTrack(const Track track, int numOfSamples);
     
 public:
 

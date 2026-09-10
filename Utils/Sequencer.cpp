@@ -13,7 +13,7 @@ Sequencer::~Sequencer()
     _clipManagerRef = nullptr;
 }
 
-int Sequencer::SecondsToSamples(float seconds)
+int Sequencer::SecondsToSamples(float seconds) const
 {
     return (int)floor(seconds * _sampleRate);
 }
@@ -23,7 +23,7 @@ void Sequencer::AddTrack(Track track)
     _tracks.push_back(track);
 }
 
-Clip Sequencer::RenderTrack(Track track, int numOfSamples)
+Clip Sequencer::RenderTrack(const Track track, int numOfSamples)
 {
     // TODO
 }
