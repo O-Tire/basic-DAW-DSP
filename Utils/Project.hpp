@@ -4,6 +4,7 @@ class AudioEngine;
 class ClipManager;
 
 
+/** All user instructions will be written to 'Run()'. Used by DAW. */
 class Project
 {
 public:

@@ -5,6 +5,8 @@
 #include <vector>
 
 
+/** Turns WAV files in samples. Use 'LoadClip()' to load a file, and use the 'Clips' vector to find your
+loaded samples. */
 class ClipManager
 {
 private:
@@ -17,6 +19,6 @@ public:
     
     ClipManager(float sampleRate);
 
-    /** Loads WAV files and turns them into samples and stores them in 'Clips'. */
+    /** Loads WAV files and turns them into samples and pushes them to 'Clips'. */
     void LoadClip(const char* path);
 };

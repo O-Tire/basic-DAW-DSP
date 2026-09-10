@@ -8,6 +8,7 @@ class ClipManager;
 class Project;
 
 
+/** Loads the entire system and runs projects. */
 class DAW
 {
 private:
