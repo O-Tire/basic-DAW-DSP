@@ -1,4 +1,6 @@
 #define MINIAUDIO_IMPLEMENTATION
+#define DR_WAV_IMPLEMENTATION
+
 #include "Utils/AudioEngine.hpp"
 #include <iostream>
 #include "utils/synth.hpp"
