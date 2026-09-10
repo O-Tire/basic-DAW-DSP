@@ -1,21 +1,21 @@
 #define MINIAUDIO_IMPLEMENTATION
 #define DR_WAV_IMPLEMENTATION
 
+#include "Utils/ClipManager.hpp"
 #include "Utils/AudioEngine.hpp"
 #include <iostream>
-#include "utils/synth.hpp"
-
 
 int main()
 {
-    float sampleRate = 44100.f;
-
-    SampleList samples = Synth::Synthesize(440, 10, sampleRate);
-    AudioEngine AE(sampleRate);
-
-    AE.PlaySamples(samples);
+    float sampleRate = 48000.f;
     
-    std::cout << "Playing sine wave...\n";
+    ClipManager CM(sampleRate);
+    AudioEngine AE(sampleRate);
+    
+    CM.LoadClip("D:/temp/.wav");
+    AE.PlaySamples(CM.Clips[0]);
+    
+    std::cout << "Playing...\n";
     getchar(); // wait until user presses Enter
     
     

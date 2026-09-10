@@ -6,8 +6,9 @@ add_executable(App
 Main.cpp
 Utils/Synth.cpp
 Utils/AudioEngine.cpp
+Utils/ClipManager.cpp
 )
 
 target_include_directories(App PUBLIC
-./libraries
+./Libraries
 )
