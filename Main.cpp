@@ -1,8 +1,8 @@
 #define MINIAUDIO_IMPLEMENTATION
 #define DR_WAV_IMPLEMENTATION
 
-#include "Utils/DAW.hpp"
-#include "Utils/Project.hpp"
+#include "DAW.hpp"
+#include "Project.hpp"
 #include <iostream>
 
 int main()
