@@ -63,7 +63,7 @@ Clip Sequencer::RenderTracks(float seconds)
 {
     int numOfSamples = SecondsToSamples(seconds);
     Clip finalRender(numOfSamples, 0.f);
-    std::vector<Clip> renderedTracks;
+    vector<Clip> renderedTracks;
 
     // Render tracks.
     for (Track track : _tracks)

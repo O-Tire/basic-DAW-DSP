@@ -2,11 +2,9 @@
 
 #include "../Libraries/dr_wav.h"
 #include "Constants.hpp"
-#include <vector>
 
 
-/** Turns WAV files in samples. Use 'LoadClip()' to load a file, and use the 'Clips' vector to find your
-loaded samples. */
+/** Loades assets such as WAV audio files or MIDI (WIP). */
 class AssetLoader
 {
 private:
@@ -15,7 +13,7 @@ private:
 
 public:
 
-    std::vector<Clip> Clips;
+    vector<Clip> Clips;
     
     AssetLoader(float sampleRate);
 

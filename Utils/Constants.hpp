@@ -2,9 +2,11 @@
 
 #include <map>
 #include <vector>
+using std::vector;
+using  std::map;
 
 
-typedef std::vector<float> Clip;
+typedef vector<float> Clip;
 
 /** Clip start time to clip index. */
-typedef std::map<float, int> Track;
+typedef map<float, int> Track;

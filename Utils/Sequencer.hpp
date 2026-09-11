@@ -1,6 +1,5 @@
 #pragma once
 
-#include <vector>
 #include "Constants.hpp"
 
 class AssetLoader;
@@ -14,7 +13,7 @@ private:
     
     AssetLoader* _clipManagerRef;
 
-    std::vector<Track> _tracks;
+    vector<Track> _tracks;
     
     int SecondsToSamples(float seconds) const;
     
