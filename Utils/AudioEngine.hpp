@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../libraries/miniaudio.h"
+#include "miniaudio.h"
 #include "Constants.hpp"
 
 

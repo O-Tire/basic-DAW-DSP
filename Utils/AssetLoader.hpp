@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Libraries/dr_wav.h"
+#include "dr_wav.h"
 #include "Constants.hpp"
 
 
