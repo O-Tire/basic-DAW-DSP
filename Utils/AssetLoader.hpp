@@ -7,7 +7,7 @@
 
 /** Turns WAV files in samples. Use 'LoadClip()' to load a file, and use the 'Clips' vector to find your
 loaded samples. */
-class ClipManager
+class AssetLoader
 {
 private:
 
@@ -17,7 +17,7 @@ public:
 
     std::vector<Clip> Clips;
     
-    ClipManager(float sampleRate);
+    AssetLoader(float sampleRate);
 
     /** Loads WAV files and turns them into samples and pushes them to 'Clips'. */
     void LoadClip(const char* path);

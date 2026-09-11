@@ -1,10 +1,10 @@
 #pragma once
 
 #include "AudioEngine.hpp"
-#include "ClipManager.hpp"
+#include "AssetLoader.hpp"
 
 class AudioEngine;
-class ClipManager;
+class AssetLoader;
 class Sequencer;
 class Project;
 
@@ -16,7 +16,7 @@ private:
 
     AudioEngine* AE;
     
-    ClipManager* CM;
+    AssetLoader* AL;
     
     Sequencer* SE;
 

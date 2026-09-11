@@ -1,13 +1,13 @@
-#include "ClipManager.hpp"
+#include "AssetLoader.hpp"
 #include "Constants.hpp"
 
 
-ClipManager::ClipManager(float sampleRate)
+AssetLoader::AssetLoader(float sampleRate)
 {
     _sampleRate = sampleRate;
 }
 
-void ClipManager::LoadClip(const char* path)
+void AssetLoader::LoadClip(const char* path)
 {
     drwav wav;
     drwav_init_file(&wav, path, nullptr);

@@ -1,7 +1,7 @@
 #pragma once
 
 class AudioEngine;
-class ClipManager;
+class AssetLoader;
 class Sequencer;
 
 
@@ -11,8 +11,8 @@ class Project
 public:
 
     /** @param AE AudioEngine.
-     *  @param CM ClipManager.
+     *  @param AL AssetLoader.
      *  @param SE Sequencer.
      */
-    void Run(AudioEngine* AE, ClipManager* CM, Sequencer* SE);
+    void Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE);
 };

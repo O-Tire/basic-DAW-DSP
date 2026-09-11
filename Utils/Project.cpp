@@ -1,14 +1,14 @@
 #include "Project.hpp"
 #include "AudioEngine.hpp"
-#include "ClipManager.hpp"
+#include "AssetLoader.hpp"
 #include "Sequencer.hpp"
 //#include "Synth.hpp" // Also available
 
 
-void Project::Run(AudioEngine* AE, ClipManager* CM, Sequencer* SE)
+void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE)
 {
-    CM->LoadClip("D:/temp/kick.wav");
-    CM->LoadClip("D:/temp/hihat.wav");
+    AL->LoadClip("D:/temp/kick.wav");
+    AL->LoadClip("D:/temp/hihat.wav");
     
     Track track1 = {
         {0.f, 0},

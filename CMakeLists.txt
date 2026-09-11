@@ -6,7 +6,7 @@ add_executable(App
 Main.cpp
 Utils/Synth.cpp
 Utils/AudioEngine.cpp
-Utils/ClipManager.cpp
+Utils/AssetLoader.cpp
 Utils/DAW.cpp
 Utils/Project.cpp
 Utils/Sequencer.cpp

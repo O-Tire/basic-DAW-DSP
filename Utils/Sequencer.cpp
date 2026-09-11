@@ -1,13 +1,13 @@
-#include "ClipManager.hpp"
+#include "AssetLoader.hpp"
 #include "Sequencer.hpp"
 #include "Constants.hpp"
 #include <utility>
 
 
-Sequencer::Sequencer(float sampleRate, ClipManager* cm)
+Sequencer::Sequencer(float sampleRate, AssetLoader* al)
 {
     _sampleRate = sampleRate;
-    _clipManagerRef = cm;
+    _clipManagerRef = al;
 }
 
 Sequencer::~Sequencer()

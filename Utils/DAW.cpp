@@ -1,6 +1,6 @@
 #include "DAW.hpp"
 #include "AudioEngine.hpp"
-#include "ClipManager.hpp"
+#include "AssetLoader.hpp"
 #include "Project.hpp"
 #include "Sequencer.hpp"
 
@@ -8,22 +8,22 @@
 DAW::DAW()
 {
     AE = new AudioEngine(SampleRate);
-    CM = new ClipManager(SampleRate);
-    SE = new Sequencer(SampleRate, CM);
+    AL = new AssetLoader(SampleRate);
+    SE = new Sequencer(SampleRate, AL);
 }
 
 DAW::~DAW()
 {
     delete AE;
-    delete CM;
+    delete AL;
     delete SE;
     
     AE = nullptr;
-    CM = nullptr;
+    AL = nullptr;
     SE = nullptr;
 }
 
 void DAW::RunProject(Project* project)
 {
-    project->Run(AE, CM, SE);
+    project->Run(AE, AL, SE);
 }

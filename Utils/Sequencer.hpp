@@ -3,7 +3,7 @@
 #include <vector>
 #include "Constants.hpp"
 
-class ClipManager;
+class AssetLoader;
 
 
 class Sequencer
@@ -12,7 +12,7 @@ private:
 
     float _sampleRate;
     
-    ClipManager* _clipManagerRef;
+    AssetLoader* _clipManagerRef;
 
     std::vector<Track> _tracks;
     
@@ -22,7 +22,7 @@ private:
     
 public:
 
-    Sequencer(float sampleRate, ClipManager* cm);
+    Sequencer(float sampleRate, AssetLoader* al);
     
     ~Sequencer();
     
