@@ -1,1 +1,1 @@
-./build/Debug/App.exe
+./build/App.exe
