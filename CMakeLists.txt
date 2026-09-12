@@ -4,12 +4,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 project(App)
 
 add_executable(App 
-Main.cpp
-Utils/AudioEngine.cpp
-Utils/AssetLoader.cpp
-Utils/DAW.cpp
-Utils/Sequencer.cpp
-Utils/Instrument.cpp
+Codebase/Main.cpp
+Codebase/Utils/AudioEngine.cpp
+Codebase/Utils/AssetLoader.cpp
+Codebase/Utils/DAW.cpp
+Codebase/Utils/Sequencer.cpp
+Codebase/Utils/Instrument.cpp
 Project/Project.cpp
 Project/Synth.cpp
 
@@ -22,9 +22,9 @@ Libraries/midifile/src/Options.cpp
 )
 
 target_include_directories(App
-PRIVATE ./Utils
+PRIVATE ./Codebase/Utils
+PRIVATE ./Codebase/Interfaces
 PRIVATE ./Project
-PRIVATE ./Interfaces
 
 PUBLIC ./Libraries
 PUBLIC ./Libraries/midifile/include
