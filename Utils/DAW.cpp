@@ -25,5 +25,5 @@ DAW::~DAW()
 
 void DAW::RunProject(Project* project)
 {
-    project->Run(AE, AL, SE);
+    project->Run(AE, AL, SE, this);
 }

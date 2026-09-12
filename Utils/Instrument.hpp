@@ -1,10 +1,13 @@
 #pragma once
+#include <memory>
+using std::shared_ptr;
 
 namespace smf
 {
     class MidiEvent;
 }
 class IVoice;
+class DAW;
 
 
 /** Can receive MIDI, but requires a voice to play sounds. */
@@ -12,13 +15,13 @@ class Instrument
 {
 private:
 
-    IVoice* _voice = nullptr;
+    shared_ptr<IVoice> _voice;
+    
+    DAW* _daw_Ref;
 
 public:
 
-    Instrument(IVoice* voice);
-    
-    ~Instrument();
+    Instrument(DAW* daw, shared_ptr<IVoice> voice);
     
     void SendMidiEvent(smf::MidiEvent event);
 

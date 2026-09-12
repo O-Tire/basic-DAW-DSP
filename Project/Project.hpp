@@ -3,6 +3,7 @@
 class AudioEngine;
 class AssetLoader;
 class Sequencer;
+class DAW;
 
 
 /** All user instructions will be written to 'Run()'. Used by DAW. */
@@ -14,5 +15,5 @@ public:
      *  @param AL AssetLoader.
      *  @param SE Sequencer.
      */
-    void Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE);
+    virtual void Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA);
 };

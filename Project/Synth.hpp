@@ -4,5 +4,5 @@
 
 class Synth : public IVoice
 {
-    virtual float GetSample(int sampleIdx, float frequency) const override;
+    virtual float GetSample(int sampleIdx, float frequency, int sampleRate) const override;
 };
