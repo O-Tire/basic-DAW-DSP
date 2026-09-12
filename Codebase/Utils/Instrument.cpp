@@ -44,9 +44,10 @@ void Instrument::MidiEvent(smf::MidiEvent event, int sampleIdx)
 
 float Instrument::Tick(int sampleIdx)
 {
+    float result = 0.f;
     for (auto key : _activeKeys)
     {
-        return _voice->GetSample(sampleIdx, MidiNoteToFrequency(key.number), _sampleRate);
+        result += _voice->GetSample(sampleIdx, MidiNoteToFrequency(key.number), _sampleRate);
     }
-    return 0.f;
+    return result;
 }
