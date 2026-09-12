@@ -60,7 +60,7 @@ Clip Sequencer::RenderTrack(const Track track, int samplesToRender)
     {
         while (currentEventIdx < events.size() && SecondsToSamples(events[currentEventIdx].seconds) == i)
         {
-            instrument.MidiEvent(events[currentEventIdx]);
+            instrument.MidiEvent(events[currentEventIdx], i);
             currentEventIdx++;
         }
     

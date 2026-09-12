@@ -21,12 +21,12 @@ float Instrument::MidiNoteToFrequency(int key)
     return 440.0 * pow(2.0, (key - 69) / 12.0);
 }
 
-void Instrument::MidiEvent(smf::MidiEvent event)
+void Instrument::MidiEvent(smf::MidiEvent event, int sampleIdx)
 {
     if (event.isNoteOn())
     {
         // Start note.
-        _activeKeys.push_back(Key(event.getKeyNumber(), _currentSample));
+        _activeKeys.push_back(Key(event.getKeyNumber(), sampleIdx));
     }
     else
     if (event.isNoteOff())
@@ -44,8 +44,6 @@ void Instrument::MidiEvent(smf::MidiEvent event)
 
 float Instrument::Tick(int sampleIdx)
 {
-    _currentSample = sampleIdx;
-    
     for (auto key : _activeKeys)
     {
         return _voice->GetSample(sampleIdx, MidiNoteToFrequency(key.number), _sampleRate);

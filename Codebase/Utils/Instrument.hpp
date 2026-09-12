@@ -28,8 +28,6 @@ private:
     vector<Key> _activeKeys;
 
     int _sampleRate;
-    
-    int _currentSample = 0;
 
     IVoice* _voice;
     
@@ -39,7 +37,7 @@ public:
 
     Instrument(DAW* daw, IVoice* voice);
     
-    void MidiEvent(smf::MidiEvent event);
+    void MidiEvent(smf::MidiEvent event, int sampleIdx);
 
     float Tick(int sampleIndex);
 };
