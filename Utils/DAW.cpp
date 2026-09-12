@@ -9,7 +9,7 @@ DAW::DAW()
 {
     AE = new AudioEngine(SampleRate);
     AL = new AssetLoader(SampleRate);
-    SE = new Sequencer(SampleRate, AL);
+    SE = new Sequencer(SampleRate, Tempo, AL);
 }
 
 DAW::~DAW()

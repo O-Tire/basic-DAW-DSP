@@ -23,6 +23,8 @@ private:
 public:
 
     float SampleRate = 48000;
+    
+    float Tempo = 120;
 
     DAW();
     

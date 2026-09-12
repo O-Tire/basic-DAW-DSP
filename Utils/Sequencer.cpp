@@ -1,12 +1,17 @@
 #include "AssetLoader.hpp"
 #include "Sequencer.hpp"
 #include "Constants.hpp"
-#include <utility>
+#include "Instrument.hpp"
+#include "MidiEventList.h"
+#include "MidiFile.h"
+
+using namespace smf;
 
 
-Sequencer::Sequencer(float sampleRate, AssetLoader* al)
+Sequencer::Sequencer(float sampleRate, float tempo, AssetLoader* al)
 {
     _sampleRate = sampleRate;
+    _tempo = tempo;
     _clipManagerRef = al;
 }
 
@@ -24,14 +29,13 @@ Track Sequencer::LoopTrack(const Track& track, int numOfLoops, float loopTime)
 {
     Track result;
     
-    for (int i = 0; i < numOfLoops; i++)
+    /*for (int i = 0; i < numOfLoops; i++)
     {
         for (const auto& pair : track)
         {
             result[loopTime * i + pair.first] = pair.second;
         }
-    }
-    
+    }*/
     return result;
 }
 
@@ -40,20 +44,27 @@ void Sequencer::AddTrack(Track track)
     _tracks.push_back(track);
 }
 
-Clip Sequencer::RenderTrack(const Track track, int numOfSamples)
+Clip Sequencer::RenderTrack(const Track track, int samplesToRender)
 {
-    Clip render(numOfSamples, 0.f);
+    Clip render(samplesToRender, 0.f);
+    int currentEventIdx = 0;
     
-    for (const auto& pair : track)
+    MidiFile& midi          = *track.first;
+    Instrument& instrument  = *track.second;
+    
+    midi.doTimeAnalysis();
+    MidiEventList events = midi[0];
+    
+    
+    for (int i = 0; i < samplesToRender; i++)
     {
-        const Clip& clip = _clipManagerRef->Clips[pair.second];
-        int start = SecondsToSamples(pair.first);
-        int end = std::min(numOfSamples, start + (int)clip.size());
-        
-        for (int i = start; i < end; i++)
+        while (currentEventIdx < events.size() && SecondsToSamples(events[currentEventIdx].seconds) == i)
         {
-            render[i] += clip[i - start];
+            instrument.SendMidiEvent(events[currentEventIdx]);
+            currentEventIdx++;
         }
+    
+        render[i] += instrument.Tick(i);
     }
     
     return render;
@@ -61,18 +72,18 @@ Clip Sequencer::RenderTrack(const Track track, int numOfSamples)
 
 Clip Sequencer::RenderTracks(float seconds)
 {
-    int numOfSamples = SecondsToSamples(seconds);
-    Clip finalRender(numOfSamples, 0.f);
+    int samplesToRender = SecondsToSamples(seconds);
+    Clip finalRender(samplesToRender, 0.f);
     vector<Clip> renderedTracks;
 
     // Render tracks.
     for (Track track : _tracks)
     {
-        renderedTracks.push_back(RenderTrack(track, numOfSamples));
+        renderedTracks.push_back(RenderTrack(track, samplesToRender));
     }
     
     // Mix down to a single channel.
-    for (int i = 0; i < numOfSamples; i++)
+    for (int i = 0; i < samplesToRender; i++)
     {
         for (const Clip& clip : renderedTracks)
         {

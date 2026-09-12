@@ -2,6 +2,10 @@
 
 #include "Constants.hpp"
 
+namespace smf
+{
+    class MidiEvent;
+}
 class AssetLoader;
 
 
@@ -11,17 +15,19 @@ private:
 
     float _sampleRate;
     
+    float _tempo;
+    
     AssetLoader* _clipManagerRef;
 
     vector<Track> _tracks;
     
     int SecondsToSamples(float seconds) const;
     
-    Clip RenderTrack(const Track track, int numOfSamples);
+    Clip RenderTrack(const Track track, int samplesToRender);
     
 public:
 
-    Sequencer(float sampleRate, AssetLoader* al);
+    Sequencer(float sampleRate, float tempo, AssetLoader* al);
     
     ~Sequencer();
     
@@ -29,7 +35,7 @@ public:
      *  @param loopTime When to insert the loop.
      */
     [[nodiscard]]
-    static Track LoopTrack(const Track& track, int numOfLoops, float loopTime);
+    static Track LoopTrack(const Track& track, int numOfLoops, float loopTime); // TODO
 
     void AddTrack(Track track);
     
