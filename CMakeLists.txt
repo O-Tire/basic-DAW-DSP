@@ -24,6 +24,7 @@ Libraries/midifile/src/Options.cpp
 target_include_directories(App
 PRIVATE ./Codebase/Utils
 PRIVATE ./Codebase/Interfaces
+PRIVATE ./Codebase/Other
 PRIVATE ./Project
 
 PUBLIC ./Libraries

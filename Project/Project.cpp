@@ -8,7 +8,7 @@
 #include "Synth.hpp"
 
 
-void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA)
+void MyProject::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA)
 {
     AL->LoadWAV("D:/temp/kick.wav");
     AL->LoadWAV("D:/temp/hihat.wav");

@@ -2,6 +2,7 @@
 
 #include "AudioEngine.hpp"
 #include "AssetLoader.hpp"
+#include "IProject.hpp"
 
 class AudioEngine;
 class AssetLoader;
@@ -31,5 +32,5 @@ public:
     
     ~DAW();
     
-    void RunProject(Project* project);
+    void RunProject(IProject* project);
 };

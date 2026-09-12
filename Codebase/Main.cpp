@@ -8,7 +8,7 @@
 int main()
 {
     DAW daw;
-    Project project;
+    MyProject project;
     
     daw.RunProject(&project);
     
