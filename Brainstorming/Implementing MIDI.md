@@ -5,14 +5,14 @@ s[Sequencer]
 i[Instrument]
 v(Voice)
 e(Envelope)
+r(Result)
 
-i -.-> 1>Creates multiple voices on init.]
-v -.-> 2>Creates an envelope on init.]
-
-s ==> |sample, notes| i
+s ==> |midi events| i
 i ==> |sample, frequency| v
-i ==> |reset| v
-v ==> |sample| e
+i ==> |is key down,\nsamples since start of note| e
+
+v ==> r
+e ==> r
 
 
 ```

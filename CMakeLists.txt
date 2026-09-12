@@ -5,14 +5,13 @@ project(App)
 
 add_executable(App 
 Main.cpp
-Utils/Synth.cpp
 Utils/AudioEngine.cpp
 Utils/AssetLoader.cpp
 Utils/DAW.cpp
 Utils/Sequencer.cpp
 Utils/Instrument.cpp
 Project/Project.cpp
-Interfaces/IVoice.cpp
+Project/Synth.cpp
 
 Libraries/midifile/src/Binasc.cpp
 Libraries/midifile/src/MidiEvent.cpp

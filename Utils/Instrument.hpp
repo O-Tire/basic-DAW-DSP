@@ -10,13 +10,17 @@ class IVoice;
 /** Can receive MIDI, but requires a voice to play sounds. */
 class Instrument
 {
+private:
+
+    IVoice* _voice = nullptr;
+
 public:
 
-    Instrument(IVoice* voice, int numOfVoices = 3);
+    Instrument(IVoice* voice);
     
     ~Instrument();
     
     void SendMidiEvent(smf::MidiEvent event);
 
-    int Tick(int sampleIndex);
+    float Tick(int sampleIndex);
 };

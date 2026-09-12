@@ -4,5 +4,6 @@
 class IVoice
 {
 public:
-    virtual void GetSample(int sampleIdx) = 0;
+
+    virtual float GetSample(int sampleIdx, float frequency) const = 0;
 };
