@@ -53,14 +53,14 @@ Clip Sequencer::RenderTrack(const Track track, int samplesToRender)
     Instrument& instrument  = *track.second;
     
     midi.doTimeAnalysis();
-    MidiEventList events = midi[0];
+    MidiEventList events = midi[1];
     
     
     for (int i = 0; i < samplesToRender; i++)
     {
         while (currentEventIdx < events.size() && SecondsToSamples(events[currentEventIdx].seconds) == i)
         {
-            instrument.SendMidiEvent(events[currentEventIdx]);
+            instrument.MidiEvent(events[currentEventIdx]);
             currentEventIdx++;
         }
     

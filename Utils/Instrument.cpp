@@ -11,10 +11,20 @@ Instrument::Instrument(DAW* daw, IVoice* voice)
     _sampleRate = daw->SampleRate;
 }
 
-void Instrument::SendMidiEvent(smf::MidiEvent event)
+float Instrument::KeyToFrequency(int key)
 {
+    return 440.f * (1.f + 1.f * (float)key / 12); // TODO
+}
+
+void Instrument::MidiEvent(smf::MidiEvent event)
+{
+    if (event.isNoteOn())
+        printf("Key: %i \n", event.getKeyNumber());
     // TODO: WIP
-    printf("%b", event.isNoteOn());
+    for (auto key : _activeKeys)
+    {
+        //if (event.)
+    }
 }
 
 float Instrument::Tick(int sampleIdx)
