@@ -2,12 +2,17 @@
 #include "MidiEvent.h"
 #include "IVoice.hpp"
 #include "DAW.hpp"
-#include <cstdio>
 
+
+Key::Key(int number, int sampleIdx)
+{
+    this->number    = number;
+    this->sampleIdx = sampleIdx;
+}
 
 Instrument::Instrument(DAW* daw, IVoice* voice)
 {
-    _voice = voice;
+    _voice      = voice;
     _sampleRate = daw->SampleRate;
 }
 
@@ -19,16 +24,31 @@ float Instrument::MidiNoteToFrequency(int key)
 void Instrument::MidiEvent(smf::MidiEvent event)
 {
     if (event.isNoteOn())
-        printf("Key: %i \n", event.getKeyNumber());
-    // TODO: WIP
-    for (auto key : _activeKeys)
     {
-        //if (event.)
+        // Start note.
+        _activeKeys.push_back(Key(event.getKeyNumber(), _currentSample));
+    }
+    else
+    if (event.isNoteOff())
+    {
+        // End note.
+        for (int i = 0; i < _activeKeys.size(); i++)
+        {
+            if (event.getKeyNumber() != _activeKeys[i].number) continue;
+            
+            _activeKeys.erase(_activeKeys.begin() + i);
+            break;
+        }
     }
 }
 
 float Instrument::Tick(int sampleIdx)
 {
-    // TODO: WIP
-    return _voice->GetSample(sampleIdx, 440.f, _sampleRate);
+    _currentSample = sampleIdx;
+    
+    for (auto key : _activeKeys)
+    {
+        return _voice->GetSample(sampleIdx, MidiNoteToFrequency(key.number), _sampleRate);
+    }
+    return 0.f;
 }

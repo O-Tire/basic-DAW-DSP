@@ -11,7 +11,9 @@ class DAW;
 
 struct Key
 {
-    int key;
+    Key(int number, int sampleIdx);
+
+    int number;
     
     /** The sample index at which the key was pressed. */
     int sampleIdx;
@@ -26,6 +28,8 @@ private:
     vector<Key> _activeKeys;
 
     int _sampleRate;
+    
+    int _currentSample = 0;
 
     IVoice* _voice;
     

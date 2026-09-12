@@ -9,7 +9,7 @@ namespace smf
 }
 
 
-/** Loades assets such as WAV audio files or MIDI (WIP). */
+/** Loades assets such as WAV audio files or MIDI. */
 class AssetLoader
 {
 private:

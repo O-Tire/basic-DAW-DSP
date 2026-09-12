@@ -1,7 +1,5 @@
 A very basic DAW running on [MiniAudio](https://github.com/mackron/miniaudio), capable of simple audio playback, sequencing & MIDI playback.
 
-> MIDI is WIP and isn't supported yet.
-
 # Capabilities:
 - Asset loader: can load WAV and MIDI files.
 - Basic sequencer: able to read MIDI.
