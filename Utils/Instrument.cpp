@@ -5,7 +5,7 @@
 #include <cstdio>
 
 
-Instrument::Instrument(DAW* daw, shared_ptr<IVoice> voice)
+Instrument::Instrument(DAW* daw, IVoice* voice)
 {
     _voice = voice;
     _sampleRate = daw->SampleRate;

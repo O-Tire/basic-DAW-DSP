@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-using std::shared_ptr;
 
 namespace smf
 {
@@ -17,11 +15,11 @@ private:
 
     int _sampleRate;
 
-    shared_ptr<IVoice> _voice;
+    IVoice* _voice;
 
 public:
 
-    Instrument(DAW* daw, shared_ptr<IVoice> voice);
+    Instrument(DAW* daw, IVoice* voice);
     
     void SendMidiEvent(smf::MidiEvent event);
 
