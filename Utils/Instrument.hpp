@@ -29,7 +29,7 @@ private:
 
     IVoice* _voice;
     
-    float KeyToFrequency(int key);
+    float MidiNoteToFrequency(int key);
 
 public:
 
