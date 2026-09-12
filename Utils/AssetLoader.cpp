@@ -7,7 +7,7 @@ AssetLoader::AssetLoader(float sampleRate)
     _sampleRate = sampleRate;
 }
 
-void AssetLoader::LoadClip(const char* path)
+void AssetLoader::LoadWAV(const char* path)
 {
     drwav wav;
     drwav_init_file(&wav, path, nullptr);

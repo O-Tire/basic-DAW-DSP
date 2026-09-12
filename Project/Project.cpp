@@ -7,8 +7,8 @@
 
 void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE)
 {
-    AL->LoadClip("D:/temp/kick.wav");
-    AL->LoadClip("D:/temp/hihat.wav");
+    AL->LoadWAV("D:/temp/kick.wav");
+    AL->LoadWAV("D:/temp/hihat.wav");
     
     Track track1 = {
         {0.f, 0},

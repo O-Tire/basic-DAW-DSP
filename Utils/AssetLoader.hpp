@@ -18,5 +18,5 @@ public:
     AssetLoader(float sampleRate);
 
     /** Loads WAV files and turns them into samples and pushes them to 'Clips'. */
-    void LoadClip(const char* path);
+    void LoadWAV(const char* path);
 };
