@@ -1,5 +1,6 @@
 #include "AssetLoader.hpp"
 #include "Constants.hpp"
+#include "MidiFile.h"
 
 
 AssetLoader::AssetLoader(float sampleRate)
@@ -17,4 +18,11 @@ void AssetLoader::LoadWAV(const char* path)
     
     drwav_uninit(&wav);
     Clips.push_back(clip);
+}
+
+void AssetLoader::LoadMIDI(const char* path)
+{
+    smf::MidiFile* midi = new smf::MidiFile(path);
+    
+    MIDIs.push_back(midi);
 }

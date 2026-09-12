@@ -9,6 +9,7 @@ void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE)
 {
     AL->LoadWAV("D:/temp/kick.wav");
     AL->LoadWAV("D:/temp/hihat.wav");
+    AL->LoadMIDI("D:/temp/midi.mid");
     
     Track track1 = {
         {0.f, 0},
