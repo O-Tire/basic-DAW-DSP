@@ -15,9 +15,9 @@ class Instrument
 {
 private:
 
+    int _sampleRate;
+
     shared_ptr<IVoice> _voice;
-    
-    DAW* _daw_Ref;
 
 public:
 

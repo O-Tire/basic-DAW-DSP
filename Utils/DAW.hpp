@@ -22,6 +22,7 @@ private:
 
 public:
 
+    /** Shouldn't change after DAW initialization. */
     float SampleRate = 48000;
     
     float Tempo = 120;

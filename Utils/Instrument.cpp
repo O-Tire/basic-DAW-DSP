@@ -8,7 +8,7 @@
 Instrument::Instrument(DAW* daw, shared_ptr<IVoice> voice)
 {
     _voice = voice;
-    _daw_Ref = daw;
+    _sampleRate = daw->SampleRate;
 }
 
 void Instrument::SendMidiEvent(smf::MidiEvent event)
@@ -20,5 +20,5 @@ void Instrument::SendMidiEvent(smf::MidiEvent event)
 float Instrument::Tick(int sampleIdx)
 {
     // TODO: WIP
-    return _voice->GetSample(sampleIdx, 440.f, _daw_Ref->SampleRate);
+    return _voice->GetSample(sampleIdx, 440.f, _sampleRate);
 }
