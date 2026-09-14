@@ -12,8 +12,8 @@ Codebase/Utils/Sequencer.cpp
 Codebase/Utils/Instrument.cpp
 Codebase/Utils/ADSR.cpp
 Codebase/Other/Constants.cpp
-Project/Project.cpp
-Project/Synth.cpp
+Codebase/Lua/Project.cpp
+Custom/Synth.cpp
 
 Libraries/midifile/src/Binasc.cpp
 Libraries/midifile/src/MidiEvent.cpp
@@ -24,14 +24,15 @@ Libraries/midifile/src/Options.cpp
 )
 
 target_include_directories(App
-PRIVATE ./Codebase/Utils
-PRIVATE ./Codebase/Interfaces
-PRIVATE ./Codebase/Other
-PRIVATE ./Project
+PRIVATE Codebase/Utils
+PRIVATE Codebase/Interfaces
+PRIVATE Codebase/Other
+PRIVATE Codebase/Lua
+PRIVATE Custom
 
-PUBLIC ./Libraries
-PUBLIC ./Libraries/midifile/include
-PUBLIC ./Libraries/lua/include
+PUBLIC Libraries
+PUBLIC Libraries/midifile/include
+PUBLIC Libraries/lua/include
 )
 
 target_link_libraries(App

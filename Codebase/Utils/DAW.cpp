@@ -23,7 +23,7 @@ DAW::~DAW()
     SE = nullptr;
 }
 
-void DAW::RunProject(IProject* project)
+void DAW::RunProject(Project* project)
 {
     project->Run(AE, AL, SE, this);
 }
