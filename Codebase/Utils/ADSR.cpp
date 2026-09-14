@@ -1,4 +1,5 @@
 #include "ADSR.hpp"
+#include <cmath>
 
 
 ADSR::ADSR(float a, float d, float s, float r)
@@ -19,5 +20,13 @@ float ADSR::GetValue(float time, float releaseTime) const
     
     if (time >= Attack + Decay && releaseTime == 0) return Sustain;
     
-    return (1 - (time - releaseTime) / Release) * Sustain;
+    return fmax(
+        (1 - (time - releaseTime) / Release) * Sustain,
+        0
+    );
+}
+
+bool ADSR::HasEnded(float releaseTime) const
+{
+    return releaseTime > Release;
 }

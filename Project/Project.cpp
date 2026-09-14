@@ -1,5 +1,6 @@
 #include "Project.hpp"
 
+#include "ADSR.hpp"
 #include "AudioEngine.hpp"
 #include "AssetLoader.hpp"
 #include "Instrument.hpp"
@@ -15,6 +16,7 @@ void MyProject::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA)
     AL->LoadMIDI("D:/temp/midi.mid");
     
     auto voice = new Synth();
+    auto envelope = new ADSR(0.1, 0.1, 0.5, 0.2);
     auto instrument = new Instrument(DA, voice);
     
     Track track1 = {AL->MIDIs[0], instrument};

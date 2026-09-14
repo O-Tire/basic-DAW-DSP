@@ -18,4 +18,6 @@ public:
     ADSR(float a, float d, float s, float r);
     
     virtual float GetValue(float time, float releaseTime = 0) const override;
+    
+    virtual bool HasEnded(float releaseTime = 0) const override;
 };
