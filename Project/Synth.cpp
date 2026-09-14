@@ -5,11 +5,10 @@
 
 float Synth::GetSample(int sampleIdx, float frequency, int sampleRate) const
 {
-    double x = sin((double)(2.0f * M_PI * frequency / 256    * sampleIdx / sampleRate));
-    double y = sin((double)(2.0f * M_PI * frequency * 2      * sampleIdx / sampleRate));
+    float x = 2.0f * M_PI * frequency / 8.f * sampleIdx / sampleRate;
     
-    double result = x * y;
-    result /= 2;
+    float result = x - floor(x) - .5f;
+    result /= 8;
     
-    return (float)result;
+    return result;
 }

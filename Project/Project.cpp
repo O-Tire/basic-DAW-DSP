@@ -16,13 +16,13 @@ void MyProject::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA)
     AL->LoadMIDI("D:/temp/midi.mid");
     
     auto voice = new Synth();
-    auto envelope = new ADSR(.1, 0.1, 0, 0);
+    auto envelope = new ADSR(.05, .01, .7, .4);
     auto instrument = new Instrument(DA, voice, envelope);
     
     Track track1 = {AL->MIDIs[0], instrument};
     
     SE->AddTrack(track1);
-    Clip samples = SE->RenderTracks(10);
+    Clip samples = SE->RenderTracks(15);
     
     AE->PlaySamples(samples);
 }
