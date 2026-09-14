@@ -1,4 +1,4 @@
-All files under /Libraries/midifile are licensed under: BSD-2-Clause license
+All files under /Libraries/midifile are licensed under: BSD-2-Clause
 
 -----------------------------------------------------------------------------
 
