@@ -12,9 +12,17 @@ class DAW;
 
 struct Key
 {
-    Key(int number);
+    Key(int number, int frameOfAttack);
+    
+    void Unrelease(int frameOfRelease);
 
-    int number;
+    int Number;
+    
+    int FrameOfAttack;
+    
+    int FrameOfRelease;
+    
+    bool HasBeenReleased;
 };
 
 
