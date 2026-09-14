@@ -5,6 +5,7 @@
 #include "AssetLoader.hpp"
 #include "Instrument.hpp"
 #include "Sequencer.hpp"
+#include "lua.h"
 
 #include "Synth.hpp"
 

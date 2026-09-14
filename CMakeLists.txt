@@ -31,4 +31,9 @@ PRIVATE ./Project
 
 PUBLIC ./Libraries
 PUBLIC ./Libraries/midifile/include
+PUBLIC ./Libraries/lua/include
+)
+
+target_link_libraries(App
+PRIVATE ${CMAKE_SOURCE_DIR}/Libraries/lua/lua55.lib # Change to liblua55.a for Linux.
 )
