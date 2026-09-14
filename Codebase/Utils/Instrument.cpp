@@ -2,6 +2,7 @@
 #include "MidiEvent.h"
 #include "IVoice.hpp"
 #include "DAW.hpp"
+#include "IEnvelope.hpp"
 
 
 Key::Key(int number, int sampleIdx)
@@ -10,10 +11,11 @@ Key::Key(int number, int sampleIdx)
     this->sampleIdx = sampleIdx;
 }
 
-Instrument::Instrument(DAW* daw, IVoice* voice)
+Instrument::Instrument(DAW* daw, IVoice* voice, IEnvelope* envelope)
 {
-    _voice      = voice;
     _sampleRate = daw->SampleRate;
+    _voice      = voice;
+    _envelope   = envelope;
 }
 
 float Instrument::MidiNoteToFrequency(int key)

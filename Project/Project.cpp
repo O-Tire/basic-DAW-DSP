@@ -17,7 +17,7 @@ void MyProject::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA)
     
     auto voice = new Synth();
     auto envelope = new ADSR(0.1, 0.1, 0.5, 0.2);
-    auto instrument = new Instrument(DA, voice);
+    auto instrument = new Instrument(DA, voice, envelope);
     
     Track track1 = {AL->MIDIs[0], instrument};
     

@@ -3,7 +3,7 @@
 #include "IEnvelope.hpp"
 
 
-class ADSR : IEnvelope
+class ADSR : public IEnvelope
 {
 public:
 

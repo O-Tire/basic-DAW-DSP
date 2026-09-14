@@ -5,6 +5,7 @@ namespace smf
 {
     class MidiEvent;
 }
+class IEnvelope;
 class IVoice;
 class DAW;
 
@@ -31,11 +32,13 @@ private:
 
     IVoice* _voice;
     
+    IEnvelope* _envelope;
+    
     float MidiNoteToFrequency(int key);
 
 public:
 
-    Instrument(DAW* daw, IVoice* voice);
+    Instrument(DAW* daw, IVoice* voice, IEnvelope* envelope);
     
     void MidiEvent(smf::MidiEvent event, int sampleIdx);
 
