@@ -1,1 +1,1 @@
-./build/App.exe
+./build/App.exe "D:/temp/test.lua"

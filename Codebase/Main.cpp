@@ -3,16 +3,25 @@
 
 #include "DAW.hpp"
 #include "Project.hpp"
-#include <iostream>
+#include <cstdio>
 
-int main()
+int main(int argc, char* argv[])
 {
+    // Parse CL arguments.
+    
+    if (argc != 2)
+    {
+        printf("Please pass the path of your .lua file as an argument.\nDAW couldn't initialize.\n");
+        return -1;
+    }
+    
+    // Initialize DAW.
+
     DAW daw;
-    Project project;
     
-    daw.RunProject(&project);
+    daw.RunProject(argv[1]);
     
-    std::cout << "Playing. Press any key to exit...\n";
+    printf("Playing. Press any key to exit...\n");
     getchar(); // wait until user presses Enter
     
     return 0;

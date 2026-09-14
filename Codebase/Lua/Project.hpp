@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 class AudioEngine;
 class AssetLoader;
 class Sequencer;
@@ -11,5 +13,5 @@ class Project
 {
 public:
 
-    void Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA);
+    static void Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA, std::string path);
 };

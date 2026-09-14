@@ -1,27 +1,33 @@
 #include "Project.hpp"
 
-#include "ADSR.hpp"
 #include "AudioEngine.hpp"
 #include "AssetLoader.hpp"
 #include "Instrument.hpp"
 #include "Sequencer.hpp"
-#include "Synth.hpp"
 
+#include <cstdio>
 
-void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA)
+extern "C"
 {
-    AL->LoadWAV("D:/temp/kick.wav");
-    AL->LoadWAV("D:/temp/hihat.wav");
-    AL->LoadMIDI("D:/temp/midi.mid");
+    #include "lua.h"
+    #include "lauxlib.h"
+    #include "lualib.h"
+}
+
+
+void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA, std::string path)
+{
+    lua_State* L = luaL_newstate();
+    luaL_openlibs(L);
     
-    auto voice = new Synth();
-    auto envelope = new ADSR(.05, .01, .7, .4);
-    auto instrument = new Instrument(DA, voice, envelope);
+    //------------- Execute script.
     
-    Track track1 = {AL->MIDIs[0], instrument};
+    int fileResult = luaL_dofile(L, path.c_str());
     
-    SE->AddTrack(track1);
-    Clip samples = SE->RenderTracks(15);
+    if (fileResult != LUA_OK)
+    {
+        printf("Could not open the .lua file.\n%s\n", lua_tostring(L, -1));
+    }
     
-    AE->PlaySamples(samples);
+    lua_close(L);
 }

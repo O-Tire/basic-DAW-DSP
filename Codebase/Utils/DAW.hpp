@@ -2,6 +2,7 @@
 
 #include "AudioEngine.hpp"
 #include "AssetLoader.hpp"
+#include <string>
 
 class AudioEngine;
 class AssetLoader;
@@ -31,5 +32,6 @@ public:
     
     ~DAW();
     
-    void RunProject(Project* project);
+    /** Path to a Lua file. */
+    void RunProject(std::string path);
 };
