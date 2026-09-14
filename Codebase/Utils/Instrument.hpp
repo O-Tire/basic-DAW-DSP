@@ -12,12 +12,9 @@ class DAW;
 
 struct Key
 {
-    Key(int number, int sampleIdx);
+    Key(int number);
 
     int number;
-    
-    /** The sample index at which the key was pressed. */
-    int sampleIdx;
 };
 
 

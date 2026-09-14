@@ -5,10 +5,9 @@
 #include "IEnvelope.hpp"
 
 
-Key::Key(int number, int sampleIdx)
+Key::Key(int number)
 {
     this->number    = number;
-    this->sampleIdx = sampleIdx;
 }
 
 Instrument::Instrument(DAW* daw, IVoice* voice, IEnvelope* envelope)
@@ -28,7 +27,7 @@ void Instrument::MidiEvent(smf::MidiEvent event, int sampleIdx)
     if (event.isNoteOn())
     {
         // Start note.
-        _activeKeys.push_back(Key(event.getKeyNumber(), sampleIdx));
+        _activeKeys.push_back(Key(event.getKeyNumber()));
     }
     else
     if (event.isNoteOff())

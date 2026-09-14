@@ -10,6 +10,8 @@ Codebase/Utils/AssetLoader.cpp
 Codebase/Utils/DAW.cpp
 Codebase/Utils/Sequencer.cpp
 Codebase/Utils/Instrument.cpp
+Codebase/Utils/ADSR.cpp
+Codebase/Other/Constants.cpp
 Project/Project.cpp
 Project/Synth.cpp
 
