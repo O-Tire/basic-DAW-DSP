@@ -21,8 +21,6 @@ private:
 
     vector<Track> _tracks;
     
-    int SecondsToSamples(float seconds) const;
-    
     Clip RenderTrack(const Track track, int samplesToRender);
     
 public:

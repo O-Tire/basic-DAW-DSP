@@ -20,11 +20,6 @@ Sequencer::~Sequencer()
     _clipManagerRef = nullptr;
 }
 
-int Sequencer::SecondsToSamples(float seconds) const
-{
-    return (int)floor(seconds * _sampleRate);
-}
-
 Track Sequencer::LoopTrack(const Track& track, int numOfLoops, float loopTime)
 {
     Track result;
@@ -58,7 +53,11 @@ Clip Sequencer::RenderTrack(const Track track, int samplesToRender)
     
     for (int i = 0; i < samplesToRender; i++)
     {
-        while (currentEventIdx < events.size() && SecondsToSamples(events[currentEventIdx].seconds) == i)
+        while (
+            currentEventIdx < events.size()
+            &&
+            SecondsToSamples(events[currentEventIdx].seconds, _sampleRate) == i
+            )
         {
             instrument.MidiEvent(events[currentEventIdx], i);
             currentEventIdx++;
@@ -72,7 +71,7 @@ Clip Sequencer::RenderTrack(const Track track, int samplesToRender)
 
 Clip Sequencer::RenderTracks(float seconds)
 {
-    int samplesToRender = SecondsToSamples(seconds);
+    int samplesToRender = SecondsToSamples(seconds, _sampleRate);
     Clip finalRender(samplesToRender, 0.f);
     vector<Clip> renderedTracks;
 
