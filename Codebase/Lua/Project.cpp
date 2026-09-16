@@ -16,6 +16,7 @@ extern "C"
 
 // Paste in Glue CPPs.
 #include "AssetLoader_Glue.cpp"
+#include "Sequencer_Glue.cpp"
 
 void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA, std::string path)
 {
@@ -33,6 +34,19 @@ void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA, std:
     lua_pushlightuserdata(L, AL);
     lua_pushcclosure(L, LoadMIDI_lua, 1);
     lua_setglobal(L, "load_midi");
+    
+    // AddTrack()
+    lua_pushlightuserdata(L, SE);
+    lua_pushlightuserdata(L, AL);
+    lua_pushcclosure(L, AddTrack_lua, 2);
+    lua_setglobal(L, "add_track");
+    
+    // RenderTracks()
+    lua_pushlightuserdata(L, SE);
+    lua_pushlightuserdata(L, AE);
+    lua_pushcclosure(L, RenderTracks_lua, 2);
+    lua_setglobal(L, "add_track");
+    
     
     //------------- Execute script.
     
