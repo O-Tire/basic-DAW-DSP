@@ -4,7 +4,6 @@
 #include "IEnvelope.hpp"
 #include "IVoice.hpp"
 #include "Instrument.hpp"
-#include "Synth.hpp"
 
 extern "C"
 {
@@ -16,10 +15,8 @@ static int MakeInstrument_lua(lua_State* L)
 {
     DAW* DA = static_cast<DAW*>(lua_touserdata(L, lua_upvalueindex(1))); // Closure
     
-    //IVoice* voice = static_cast<IVoice*>(luaL_checkudata(L, 1, Lua::VOICE_META)); // Arg 1
+    IVoice* voice = static_cast<IVoice*>(luaL_checkudata(L, 1, Lua::LUA_VOICE_META)); // Arg 1
     IEnvelope* envelope = static_cast<IEnvelope*>(luaL_checkudata(L, 2, Lua::ENVELOPE_META)); // Arg 2
-    
-    IVoice* voice = new Synth();
     
     Instrument* instrument = reinterpret_cast<Instrument*>(lua_newuserdata(L, sizeof(Instrument)));
     new(instrument) Instrument(DA, voice, envelope);

@@ -13,6 +13,7 @@ Codebase/Utils/Instrument.cpp
 Codebase/Utils/ADSR.cpp
 Codebase/Other/Constants.cpp
 Codebase/Lua/Project.cpp
+"Codebase/Lua/Lua-Only Classes/LuaVoice.cpp"
 Custom/Synth.cpp
 
 Libraries/midifile/src/Binasc.cpp
@@ -28,6 +29,7 @@ PRIVATE Codebase/Utils
 PRIVATE Codebase/Interfaces
 PRIVATE Codebase/Other
 PRIVATE Codebase/Lua
+PRIVATE "Codebase/Lua/Lua-Only Classes"
 PRIVATE Custom
 
 PUBLIC Libraries

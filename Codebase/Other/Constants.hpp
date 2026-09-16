@@ -15,9 +15,9 @@ class Instrument;
 
 namespace Lua
 {
-    constexpr const char* INSTRUMENT_META = "im";
-    constexpr const char* VOICE_META      = "vm";
-    constexpr const char* ENVELOPE_META   = "em";
+    constexpr const char* INSTRUMENT_META = "Instrument";
+    constexpr const char* LUA_VOICE_META      = "LuaVoice";
+    constexpr const char* ENVELOPE_META   = "Envelope";
 }
 
 typedef vector<float> Clip;
