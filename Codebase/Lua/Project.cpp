@@ -18,6 +18,7 @@ extern "C"
 #include "AssetLoader_Glue.cpp"
 #include "Sequencer_Glue.cpp"
 #include "Instrument_Glue.cpp"
+#include "ADSR_Glue.cpp"
 
 void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA, std::string path)
 {
@@ -54,6 +55,9 @@ void Project::Run(AudioEngine* AE, AssetLoader* AL, Sequencer* SE, DAW* DA, std:
     lua_pushcclosure(L, MakeInstrument_lua, 1);
     lua_setglobal(L, "make_instrument");
     
+    // ADSR
+    RegisterADSR(L);
+    lua_register(L, "make_adsr", MakeADSR_lua);
     
     //------------- Execute script.
     
