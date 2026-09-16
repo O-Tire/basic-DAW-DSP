@@ -12,6 +12,7 @@ int main(int argc, char* argv[])
     if (argc != 2)
     {
         printf("Please pass the path of your .lua file as an argument.\nDAW couldn't initialize.\n");
+        getchar();
         return -1;
     }
     
