@@ -8,7 +8,7 @@ extern "C"
 
 static int LoadWAV_lua(lua_State* L)
 {
-    AssetLoader* AL = static_cast<AssetLoader*>(lua_touserdata(L, lua_upvalueindex(1)));
+    AssetLoader* AL = static_cast<AssetLoader*>(lua_touserdata(L, lua_upvalueindex(1))); // Closure
     const char* path = luaL_checkstring(L, 1); // Arg 1
     
     AL->LoadWAV(path);
@@ -19,7 +19,7 @@ static int LoadWAV_lua(lua_State* L)
 
 static int LoadMIDI_lua(lua_State* L)
 {
-    AssetLoader* AL = static_cast<AssetLoader*>(lua_touserdata(L, lua_upvalueindex(1)));
+    AssetLoader* AL = static_cast<AssetLoader*>(lua_touserdata(L, lua_upvalueindex(1))); // Closure
     const char* path = luaL_checkstring(L, 1); // Arg 1
     
     AL->LoadMIDI(path);

@@ -11,6 +11,14 @@ namespace smf
 }
 class Instrument;
 
+//---------------------------------------------------- Actual content:
+
+namespace Lua
+{
+    constexpr const char* INSTRUMENT_META = "im";
+    constexpr const char* VOICE_META      = "vm";
+    constexpr const char* ENVELOPE_META   = "em";
+}
 
 typedef vector<float> Clip;
 
